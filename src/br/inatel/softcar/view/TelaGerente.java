@@ -100,7 +100,9 @@ public class TelaGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_btLoginActionPerformed
 
     private void btCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroActionPerformed
-        
+        CadastroGerente cg = new CadastroGerente();
+        cg.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btCadastroActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed

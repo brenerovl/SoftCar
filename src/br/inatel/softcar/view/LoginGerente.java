@@ -129,7 +129,9 @@ public class LoginGerente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        
+        TelaHomeGerente tgh = new TelaHomeGerente();
+        tgh.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_loginActionPerformed
 
     private void btVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltar1ActionPerformed
