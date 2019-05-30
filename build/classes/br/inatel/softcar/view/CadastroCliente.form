@@ -42,15 +42,15 @@
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                               <Component id="usuarioTexto" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="usuario" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
-                          <Component id="email" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
+                          <Component id="textFieldUsuario" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
+                          <Component id="textFieldEmail" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                                   <Component id="senhaTexto" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="senha" alignment="0" min="-2" pref="208" max="-2" attributes="0"/>
+                              <Component id="textFieldSenha" alignment="0" min="-2" pref="208" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -81,15 +81,15 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="usuarioTexto" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="usuario" min="-2" max="-2" attributes="0"/>
+              <Component id="textFieldUsuario" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="enderecoTexto" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="email" min="-2" max="-2" attributes="0"/>
+              <Component id="textFieldEmail" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="senhaTexto" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="senha" min="-2" max="-2" attributes="0"/>
+              <Component id="textFieldSenha" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="33" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btCadastro" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
@@ -135,14 +135,14 @@
         <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="usuario">
+    <Component class="javax.swing.JTextField" name="textFieldUsuario">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usuarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldUsuarioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="senha">
+    <Component class="javax.swing.JPasswordField" name="textFieldSenha">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldSenhaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="enderecoTexto">
@@ -150,9 +150,9 @@
         <Property name="text" type="java.lang.String" value="Endere&#xe7;o de email:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="email">
+    <Component class="javax.swing.JTextField" name="textFieldEmail">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldEmailActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

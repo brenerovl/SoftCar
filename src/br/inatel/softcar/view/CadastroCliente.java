@@ -1,5 +1,9 @@
 package br.inatel.softcar.view;
 
+import br.inatel.softcar.model.Usuario;
+import br.inatel.softcar.model.UsuarioDAO;
+import java.util.Arrays;
+
 public class CadastroCliente extends javax.swing.JFrame {
 
     public CadastroCliente() {
@@ -17,10 +21,10 @@ public class CadastroCliente extends javax.swing.JFrame {
         btVoltar = new javax.swing.JButton();
         usuarioTexto = new javax.swing.JLabel();
         senhaTexto = new javax.swing.JLabel();
-        usuario = new javax.swing.JTextField();
-        senha = new javax.swing.JPasswordField();
+        textFieldUsuario = new javax.swing.JTextField();
+        textFieldSenha = new javax.swing.JPasswordField();
         enderecoTexto = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
+        textFieldEmail = new javax.swing.JTextField();
 
         btVoltar1.setText("Voltar");
         btVoltar1.addActionListener(new java.awt.event.ActionListener() {
@@ -52,23 +56,23 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         senhaTexto.setText("Senha:");
 
-        usuario.addActionListener(new java.awt.event.ActionListener() {
+        textFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioActionPerformed(evt);
+                textFieldUsuarioActionPerformed(evt);
             }
         });
 
-        senha.addActionListener(new java.awt.event.ActionListener() {
+        textFieldSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaActionPerformed(evt);
+                textFieldSenhaActionPerformed(evt);
             }
         });
 
         enderecoTexto.setText("Endereço de email:");
 
-        email.addActionListener(new java.awt.event.ActionListener() {
+        textFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                textFieldEmailActionPerformed(evt);
             }
         });
 
@@ -84,14 +88,14 @@ public class CadastroCliente extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
                                 .addComponent(usuarioTexto))
-                            .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGap(79, 79, 79)
                                     .addComponent(senhaTexto)
                                     .addGap(95, 95, 95))
-                                .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(textFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(labelTitle))
@@ -113,15 +117,15 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usuarioTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(enderecoTexto)
                 .addGap(18, 18, 18)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(senhaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,6 +137,12 @@ public class CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroActionPerformed
+        Usuario u = new Usuario();
+        UsuarioDAO dao = new UsuarioDAO();
+        u.setNome(textFieldUsuario.getText());
+        u.setEmail(textFieldEmail.getText());
+        u.setSenha(Arrays.toString(textFieldSenha.getPassword()));
+        dao.create(u);
         
     }//GEN-LAST:event_btCadastroActionPerformed
 
@@ -146,17 +156,17 @@ public class CadastroCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
-    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
+    private void textFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioActionPerformed
+    }//GEN-LAST:event_textFieldUsuarioActionPerformed
 
-    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
+    private void textFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_senhaActionPerformed
+    }//GEN-LAST:event_textFieldSenhaActionPerformed
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void textFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_textFieldEmailActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -195,12 +205,12 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JButton btCadastro;
     private javax.swing.JButton btVoltar;
     private javax.swing.JButton btVoltar1;
-    private javax.swing.JTextField email;
     private javax.swing.JLabel enderecoTexto;
     private javax.swing.JLabel labelTitle;
-    private javax.swing.JPasswordField senha;
     private javax.swing.JLabel senhaTexto;
-    private javax.swing.JTextField usuario;
+    private javax.swing.JTextField textFieldEmail;
+    private javax.swing.JPasswordField textFieldSenha;
+    private javax.swing.JTextField textFieldUsuario;
     private javax.swing.JLabel usuarioTexto;
     // End of variables declaration//GEN-END:variables
 }

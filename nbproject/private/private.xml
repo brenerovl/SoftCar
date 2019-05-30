@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/view/TelaGerente.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/view/LoginGerente.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/model/SoftCar.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/view/CadastroGerente.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/view/CadastroCliente.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/view/LoginCliente.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/view/TelaHomeCliente.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/view/TelaHomeGerente.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/view/TelaInicial.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/Softcar/SoftCar/src/br/inatel/softcar/view/TelaCliente.java</file>
+            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/view/CadastroCliente.java</file>
+            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/controller/ConectionFactory.java</file>
+            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/model/Usuario.java</file>
+            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/model/UsuarioDAO.java</file>
         </group>
     </open-files>
 </project-private>
