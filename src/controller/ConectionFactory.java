@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class ConectionFactory {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/softcar?useTimezone=true&serverTimezone=UTC";
-    private static final String USER = "root";
+    private static final String USER = "root"; 
     private static final String PASS = "canadianinsano9";
     
     public static Connection getConnection() {
