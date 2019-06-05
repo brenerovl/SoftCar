@@ -4,8 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/view/CadastroCliente.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/controller/ConectionFactory.java</file>
-            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/model/Usuario.java</file>
+            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/view/CadastroGerente.java</file>
+            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/view/TelaHomeCliente.java</file>
+            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/model/GerenteDAO.java</file>
+            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/view/CadastroVeiculo.java</file>
+            <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/model/VeiculoDAO.java</file>
             <file>file:/C:/Users/Brener/Desktop/INATEL/EC%20206%20-%20Engenharia%20de%20Software%20II/Projeto/SoftCar/src/br/inatel/softcar/model/UsuarioDAO.java</file>
         </group>
     </open-files>

@@ -5,6 +5,10 @@
  */
 package br.inatel.softcar.view;
 
+import br.inatel.softcar.model.UsuarioDAO;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -34,8 +38,8 @@ public class LoginCliente extends javax.swing.JFrame {
         voltar = new javax.swing.JButton();
         usuarioTexto = new javax.swing.JLabel();
         senhaTexto = new javax.swing.JLabel();
-        usuario = new javax.swing.JTextField();
-        senha = new javax.swing.JPasswordField();
+        jTextFieldUser = new javax.swing.JTextField();
+        jTextFieldPass = new javax.swing.JPasswordField();
 
         btVoltar1.setText("Voltar");
         btVoltar1.addActionListener(new java.awt.event.ActionListener() {
@@ -67,15 +71,15 @@ public class LoginCliente extends javax.swing.JFrame {
 
         senhaTexto.setText("Senha:");
 
-        usuario.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioActionPerformed(evt);
+                jTextFieldUserActionPerformed(evt);
             }
         });
 
-        senha.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaActionPerformed(evt);
+                jTextFieldPassActionPerformed(evt);
             }
         });
 
@@ -90,12 +94,12 @@ public class LoginCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(56, 56, 56)
                             .addComponent(usuarioTexto))
-                        .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(81, 81, 81)
                             .addComponent(senhaTexto)))
@@ -113,11 +117,11 @@ public class LoginCliente extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(usuarioTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(senhaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,9 +133,14 @@ public class LoginCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        TelaHomeCliente thc = new TelaHomeCliente();
-        thc.setVisible(true);
-        this.dispose();
+        UsuarioDAO dao = new UsuarioDAO();
+        if(dao.login(jTextFieldUser.getText(), Arrays.toString(jTextFieldPass.getPassword()))){
+            TelaHomeCliente thc = new TelaHomeCliente();
+            thc.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Login inválido");
+        }
     }//GEN-LAST:event_loginActionPerformed
 
     private void btVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltar1ActionPerformed
@@ -146,13 +155,13 @@ public class LoginCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_voltarActionPerformed
 
-    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
+    private void jTextFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioActionPerformed
+    }//GEN-LAST:event_jTextFieldUserActionPerformed
 
-    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
+    private void jTextFieldPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_senhaActionPerformed
+    }//GEN-LAST:event_jTextFieldPassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,11 +207,11 @@ public class LoginCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btVoltar1;
+    private javax.swing.JPasswordField jTextFieldPass;
+    private javax.swing.JTextField jTextFieldUser;
     private javax.swing.JLabel labelTitle;
     private javax.swing.JButton login;
-    private javax.swing.JPasswordField senha;
     private javax.swing.JLabel senhaTexto;
-    private javax.swing.JTextField usuario;
     private javax.swing.JLabel usuarioTexto;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
