@@ -135,7 +135,7 @@ public class LoginCliente extends javax.swing.JFrame {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         UsuarioDAO dao = new UsuarioDAO();
         if(dao.login(jTextFieldUser.getText(), Arrays.toString(jTextFieldPass.getPassword()))){
-            TelaHomeCliente thc = new TelaHomeCliente();
+            TelaHomeCliente thc = new TelaHomeCliente(dao.id, dao.nome);
             thc.setVisible(true);
             this.dispose();
         }else{

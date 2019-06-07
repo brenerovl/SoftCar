@@ -19,6 +19,8 @@ import javax.swing.JOptionPane;
  * @author Brener
  */
 public class GerenteDAO {
+    public int id;
+    public String nome;
     public void create(Usuario u) {
         
         Connection con = ConectionFactory.getConnection();
@@ -40,7 +42,7 @@ public class GerenteDAO {
             ConectionFactory.closeConnection(con, stmt);
         }
     }
-    public boolean login(String email, String senha) {
+        public boolean login(String email, String senha) {
         Connection con = ConectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -52,12 +54,14 @@ public class GerenteDAO {
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
             if(rs.next()){
+                id = rs.getInt("idGerente");
+                nome = rs.getString("nome");
                 check = true;
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-            ConectionFactory.closeConnection(con, stmt);
+            ConectionFactory.closeConnection(con, stmt, rs);
         }
         return check;
     }

@@ -6,7 +6,6 @@
 package br.inatel.softcar.view;
 
 import br.inatel.softcar.model.GerenteDAO;
-import br.inatel.softcar.model.UsuarioDAO;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -134,16 +133,14 @@ public class LoginGerente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        
         GerenteDAO dao = new GerenteDAO();
         if(dao.login(jTextFieldUserGerente.getText(), Arrays.toString(jTextFieldPassGerente.getPassword()))){
-            TelaHomeGerente tgh = new TelaHomeGerente();
+            TelaHomeGerente tgh = new TelaHomeGerente(dao.id, dao.nome);
         tgh.setVisible(true);
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Login inválido");
         }
-    
     }//GEN-LAST:event_loginActionPerformed
 
     private void btVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltar1ActionPerformed

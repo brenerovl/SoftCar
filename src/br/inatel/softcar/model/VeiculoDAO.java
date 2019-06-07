@@ -5,6 +5,7 @@
  */
 package br.inatel.softcar.model;
 
+import com.sun.javafx.geom.ConcentricShapePair;
 import controller.ConectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author Brener
  */
 public class VeiculoDAO {
-    public void create(Veiculo v) {
+    public void create(Veiculo v, int idUser) {
     Connection con = ConectionFactory.getConnection();
         PreparedStatement stmt = null;
         
@@ -28,6 +29,8 @@ public class VeiculoDAO {
             stmt.setString(3, v.getTipo());
             
             stmt.executeUpdate();
+            
+            createLinkUserVehicle(idUser, v.getPlaca());
             JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar. 'carinha tisti'"+ex);
@@ -35,5 +38,23 @@ public class VeiculoDAO {
         }finally{
             ConectionFactory.closeConnection(con, stmt);
         }
+    }
+    public void createLinkUserVehicle(int idUser, String placa){
+        Connection con = ConectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("INSERT INTO usuario_has_veiculo (usuario_idUsuario, veiculo_placa)VALUES(?, ?)");
+            
+            stmt.setInt(1, idUser);
+            stmt.setString(2, placa);
+            
+            stmt.executeUpdate();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar. 'carinha tisti'"+ex);
+        }finally{
+            ConectionFactory.closeConnection(con, stmt);
+        }
+        
     }
 }

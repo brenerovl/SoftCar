@@ -16,14 +16,21 @@ import javax.swing.JOptionPane;
  * @author Brener
  */
 public class CadastroVeiculo extends javax.swing.JFrame {
-
+    int idUser;
     /**
      * Creates new form CadastroVeiculo
      */
-    public CadastroVeiculo() {
-        setLocationRelativeTo(null);
+    public CadastroVeiculo(int idUsuarioLogado) {
+        //setLocationRelativeTo(null);
         initComponents();
+        idUser = idUsuarioLogado;
     }
+
+    private CadastroVeiculo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -150,7 +157,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
             v.setPlaca(jTextFieldPlacaVeiculo.getText());
             v.setModelo(jTextFieldModeloVeiculo.getText());
             v.setTipo((String) jComboBoxTipoVeiculo.getSelectedItem());
-            dao.create(v);
+            dao.create(v, idUser);
         }
     }//GEN-LAST:event_jButtonCadastrarVeiculoActionPerformed
 
