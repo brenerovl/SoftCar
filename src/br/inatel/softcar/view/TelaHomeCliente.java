@@ -6,6 +6,8 @@
 package br.inatel.softcar.view;
 
 import br.inatel.softcar.model.UsuarioDAO;
+import br.inatel.softcar.model.Vagas;
+import br.inatel.softcar.model.VagasDAO;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
@@ -39,7 +41,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
     private void carregaDadosVeiculo() {
         ArrayList<String> listaVeiculos = new ArrayList();
         DefaultListModel model = new DefaultListModel();
-        
+
         UsuarioDAO dao = new UsuarioDAO();
         listaVeiculos = dao.carregarVeiculos(idUsuarioLogado);
         for (int i = 0; i < listaVeiculos.size(); i++) {
@@ -387,6 +389,81 @@ public class TelaHomeCliente extends javax.swing.JFrame {
 
     private void jButtonOcuparVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOcuparVagaActionPerformed
         // TODO add your handling code here:
+        VagasDAO dao = new VagasDAO();
+        Vagas vaga = new Vagas();
+
+        if (jRadioButton1.isSelected() && jRadioButton1.isEnabled()) {
+            vaga.setId(1);
+            vaga.setEstado(true);
+            vaga.setSetor("A");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton2.isSelected() && jRadioButton2.isEnabled()) {
+            vaga.setId(2);
+            vaga.setEstado(true);
+            vaga.setSetor("A");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton3.isSelected() && jRadioButton3.isEnabled()) {
+            vaga.setId(3);
+            vaga.setEstado(true);
+            vaga.setSetor("A");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton4.isSelected() && jRadioButton4.isEnabled()) {
+            vaga.setId(4);
+            vaga.setEstado(true);
+            vaga.setSetor("A");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton5.isSelected() && jRadioButton5.isEnabled()) {
+            vaga.setId(5);
+            vaga.setEstado(true);
+            vaga.setSetor("A");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton6.isSelected() && jRadioButton6.isEnabled()) {
+            vaga.setId(6);
+            vaga.setEstado(true);
+            vaga.setSetor("A");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton7.isSelected() && jRadioButton7.isEnabled()) {
+            vaga.setId(7);
+            vaga.setEstado(true);
+            vaga.setSetor("B");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton8.isSelected() && jRadioButton8.isEnabled()) {
+            vaga.setId(8);
+            vaga.setEstado(true);
+            vaga.setSetor("B");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton9.isSelected() && jRadioButton9.isEnabled()) {
+            vaga.setId(9);
+            vaga.setEstado(true);
+            vaga.setSetor("B");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton10.isSelected() && jRadioButton10.isEnabled()) {
+            vaga.setId(10);
+            vaga.setEstado(true);
+            vaga.setSetor("B");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton11.isSelected() && jRadioButton11.isEnabled()) {
+            vaga.setId(11);
+            vaga.setEstado(true);
+            vaga.setSetor("B");
+            dao.alterarEstacionamento(vaga);
+        }
+        if (jRadioButton12.isSelected() && jRadioButton12.isEnabled()) {
+            vaga.setId(12);
+            vaga.setEstado(true);
+            vaga.setSetor("B");
+            dao.alterarEstacionamento(vaga);
+        }
     }//GEN-LAST:event_jButtonOcuparVagaActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
