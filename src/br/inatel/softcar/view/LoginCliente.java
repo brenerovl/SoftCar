@@ -133,13 +133,22 @@ public class LoginCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        UsuarioDAO dao = new UsuarioDAO();
-        if(dao.login(jTextFieldUser.getText(), Arrays.toString(jTextFieldPass.getPassword()))){
-            TelaHomeCliente thc = new TelaHomeCliente(dao.id, dao.nome);
-            thc.setVisible(true);
-            this.dispose();
+
+         if(jTextFieldPass.getPassword().length == 0 || jTextFieldUser.getText().isEmpty() == true){
+            JOptionPane.showMessageDialog(null, "Complete os campos!");
         }else{
-            JOptionPane.showMessageDialog(null, "Login inválido");
+            UsuarioDAO dao = new UsuarioDAO();
+            int id = 0;
+            String nome = "";
+            if(dao.login(jTextFieldUser.getText(), Arrays.toString(jTextFieldPass.getPassword()))){
+                id = dao.id;
+                nome = dao.nome;
+                TelaHomeCliente thc = new TelaHomeCliente(id, nome);
+                thc.setVisible(true);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Login inválido");
+            }
         }
     }//GEN-LAST:event_loginActionPerformed
 

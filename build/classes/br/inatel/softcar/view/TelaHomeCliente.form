@@ -263,32 +263,38 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A7"/>
+            <Property name="text" type="java.lang.String" value="B7"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A8"/>
+            <Property name="text" type="java.lang.String" value="B8"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton9">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A9"/>
+            <Property name="text" type="java.lang.String" value="B9"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton10">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A3.1"/>
+            <Property name="text" type="java.lang.String" value="B10"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton10ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton11">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A4.1"/>
+            <Property name="text" type="java.lang.String" value="B11"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton11ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton12">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A7.1"/>
+            <Property name="text" type="java.lang.String" value="B12"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -310,6 +316,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Desocupar Vaga"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDesocuparVagaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

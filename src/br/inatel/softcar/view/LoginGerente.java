@@ -133,13 +133,18 @@ public class LoginGerente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        GerenteDAO dao = new GerenteDAO();
-        if(dao.login(jTextFieldUserGerente.getText(), Arrays.toString(jTextFieldPassGerente.getPassword()))){
-            TelaHomeGerente tgh = new TelaHomeGerente(dao.id, dao.nome);
-        tgh.setVisible(true);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Login inválido");
+
+        if (jTextFieldPassGerente.getPassword().length == 0 || jTextFieldUserGerente.getText().isEmpty() == true) {
+            JOptionPane.showMessageDialog(null, "Entre com todos os campos!");
+        } else {
+            GerenteDAO dao = new GerenteDAO();
+            if (dao.login(jTextFieldUserGerente.getText(), Arrays.toString(jTextFieldPassGerente.getPassword()))) {
+                TelaHomeGerente tgh = new TelaHomeGerente(dao.id, dao.nome);
+                tgh.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Login inválido");
+            }
         }
     }//GEN-LAST:event_loginActionPerformed
 

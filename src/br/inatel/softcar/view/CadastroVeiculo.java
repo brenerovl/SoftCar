@@ -8,8 +8,13 @@ package br.inatel.softcar.view;
 import br.inatel.softcar.model.GerenteDAO;
 import br.inatel.softcar.model.Veiculo;
 import br.inatel.softcar.model.VeiculoDAO;
+import java.text.ParseException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -145,19 +150,30 @@ public class CadastroVeiculo extends javax.swing.JFrame {
 
     private void jTextFieldPlacaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlacaVeiculoActionPerformed
         // TODO add your handling code here:
+                try {
+                    MaskFormatter mascaraPlaca = new MaskFormatter("UUU-####");
+                } catch (ParseException ex) {
+                    Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
+                }
     }//GEN-LAST:event_jTextFieldPlacaVeiculoActionPerformed
 
     private void jButtonCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarVeiculoActionPerformed
-        // TODO add your handling code here:
-        if(jComboBoxTipoVeiculo.getSelectedItem().equals("Selecione uma opção")){
-            JOptionPane.showMessageDialog(null, "Selecione uma opção de veículo válida.");
-        }else{
-            Veiculo v = new Veiculo();
-            VeiculoDAO dao = new VeiculoDAO();
-            v.setPlaca(jTextFieldPlacaVeiculo.getText());
-            v.setModelo(jTextFieldModeloVeiculo.getText());
-            v.setTipo((String) jComboBoxTipoVeiculo.getSelectedItem());
-            dao.create(v, idUser);
+
+         // TODO add your handling code here:
+        if(jTextFieldPlacaVeiculo.getText().isEmpty() == true || jTextFieldModeloVeiculo.getText().isEmpty() == true){
+            JOptionPane.showMessageDialog(null, "Entre com dados em todos os campos!");
+        }else {
+            if(jComboBoxTipoVeiculo.getSelectedItem().equals("Selecione uma opção")){
+                JOptionPane.showMessageDialog(null, "Selecione uma opção de veículo válida.");
+            }else{
+                Veiculo v = new Veiculo();
+                VeiculoDAO dao = new VeiculoDAO();
+                v.setPlaca(jTextFieldPlacaVeiculo.getText());
+                v.setModelo(jTextFieldModeloVeiculo.getText());
+                v.setTipo((String) jComboBoxTipoVeiculo.getSelectedItem());
+                
+                dao.create(v, idUser);
+        }
         }
     }//GEN-LAST:event_jButtonCadastrarVeiculoActionPerformed
 

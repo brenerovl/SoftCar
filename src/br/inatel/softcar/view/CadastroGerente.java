@@ -180,18 +180,29 @@ public class CadastroGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldGerenteCodigoAcessoActionPerformed
 
     private void jButtonGerenteCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenteCadastrarActionPerformed
-        String acesso = new String(jTextFieldGerenteCodigoAcesso.getPassword());
-        if(acesso.equals("acessopermitido")) {
-            Usuario u = new Usuario();
-            GerenteDAO dao = new GerenteDAO();
-            u.setNome(jTextFieldGerenteUsuario.getText());
-            u.setEmail(jTextFieldGerenteEmail.getText());
-            u.setSenha(Arrays.toString(jTextFieldGerenteSenha.getPassword()));
-            dao.create(u);
+        if (jTextFieldGerenteUsuario.getText().isEmpty() == true || jTextFieldGerenteEmail.getText().isEmpty() == true) {
+            JOptionPane.showMessageDialog(null, "Entre com todos os campos!");
+        } else if (jTextFieldGerenteSenha.getPassword().length == 0) {
+            JOptionPane.showMessageDialog(null, "Crie uma senha!");
+        } else if (jTextFieldGerenteSenha.getPassword().length < 7) {
+            JOptionPane.showMessageDialog(null, "A senha deve conter no mínimo 7 caracteres!");
+        } else if (jTextFieldGerenteCodigoAcesso.getPassword().length == 0) {
+            JOptionPane.showMessageDialog(null, "Digita o código de acesso!");
         } else {
-              JOptionPane.showMessageDialog(null, "Codigo de acesso incorreto.");
+
+            String acesso = new String(jTextFieldGerenteCodigoAcesso.getPassword());
+            if (acesso.equals("acessopermitido")) {
+                Usuario u = new Usuario();
+                GerenteDAO dao = new GerenteDAO();
+                u.setNome(jTextFieldGerenteUsuario.getText());
+                u.setEmail(jTextFieldGerenteEmail.getText());
+                u.setSenha(Arrays.toString(jTextFieldGerenteSenha.getPassword()));
+                dao.create(u);
+            } else {
+                JOptionPane.showMessageDialog(null, "Codigo de acesso incorreto.");
+            }
         }
-        
+
     }//GEN-LAST:event_jButtonGerenteCadastrarActionPerformed
 
     private void jButtonGerenteVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenteVoltarActionPerformed

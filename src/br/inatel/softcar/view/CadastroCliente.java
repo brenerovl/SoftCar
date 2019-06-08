@@ -3,6 +3,7 @@ package br.inatel.softcar.view;
 import br.inatel.softcar.model.Usuario;
 import br.inatel.softcar.model.UsuarioDAO;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 public class CadastroCliente extends javax.swing.JFrame {
 
@@ -137,17 +138,25 @@ public class CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroActionPerformed
-        Usuario u = new Usuario();
-        UsuarioDAO dao = new UsuarioDAO();
-        u.setNome(textFieldUsuario.getText());
-        u.setEmail(textFieldEmail.getText());
-        u.setSenha(Arrays.toString(textFieldSenha.getPassword()));
-        dao.create(u);
-        
+
+        if (textFieldUsuario.getText().isEmpty() == true || textFieldEmail.getText().isEmpty() == true) {
+            JOptionPane.showMessageDialog(null, "Entre com todos os campos!");
+        } else if (textFieldSenha.getPassword().length == 0) {
+            JOptionPane.showMessageDialog(null, "Crie uma senha!");
+        } else if (textFieldSenha.getPassword().length < 7) {
+            JOptionPane.showMessageDialog(null, "A senha deve conter no mínimo 7 caracteres!");
+        } else {
+            Usuario u = new Usuario();
+            UsuarioDAO dao = new UsuarioDAO();
+            u.setNome(textFieldUsuario.getText());
+            u.setEmail(textFieldEmail.getText());
+            u.setSenha(Arrays.toString(textFieldSenha.getPassword()));
+            dao.create(u);
+        }
     }//GEN-LAST:event_btCadastroActionPerformed
 
     private void btVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltar1ActionPerformed
-        
+
     }//GEN-LAST:event_btVoltar1ActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
@@ -191,7 +200,7 @@ public class CadastroCliente extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-       
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

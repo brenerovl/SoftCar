@@ -13,7 +13,7 @@ public class Vagas {
 
     private int id;
     private String setor;
-    private boolean estado;
+    private int estado;
 
     public int getId() {
         return id;
@@ -31,11 +31,11 @@ public class Vagas {
         this.setor = setor;
     }
 
-    public boolean isEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 }

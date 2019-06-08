@@ -5,6 +5,10 @@
  */
 package br.inatel.softcar.view;
 
+import br.inatel.softcar.model.VagasDAO;
+import java.util.ArrayList;
+import javax.swing.ButtonGroup;
+
 /**
  *
  * @author Brener
@@ -18,12 +22,94 @@ public class TelaHomeGerente extends javax.swing.JFrame {
         initComponents();
         jLabelNomeGerente.setText(nome);
         setLocationRelativeTo(null);
+        carregarDadosVagas();
     }
 
     private TelaHomeGerente() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    private void carregarDadosVagas() {
+        ArrayList<Integer> listaVagas = new ArrayList();
+        
+        VagasDAO dao = new VagasDAO();
+        listaVagas = dao.lerEstacionamento();
+        
+        if(listaVagas.get(0) == 1) {
+            jRadioButton1.setSelected(true);
+        }
+        if(listaVagas.get(1) == 1) {
+            jRadioButton2.setSelected(true);
+        }
+        if(listaVagas.get(2) == 1) {
+            jRadioButton3.setSelected(true);
+        }
+        if(listaVagas.get(3) == 1) {
+            jRadioButton4.setSelected(true);
+        }
+        if(listaVagas.get(4) == 1) {
+            jRadioButton5.setSelected(true);
+        }
+        if(listaVagas.get(5) == 1) {
+            jRadioButton6.setSelected(true);
+        }
+        if(listaVagas.get(6) == 1) {
+            jRadioButton7.setSelected(true);
+        }
+        if(listaVagas.get(7) == 1) {
+            jRadioButton8.setSelected(true);
+        }
+        if(listaVagas.get(8) == 1) {
+            jRadioButton9.setSelected(true);
+        }
+        if(listaVagas.get(9) == 1) {
+            jRadioButton10.setSelected(true);
+        }
+        if(listaVagas.get(10) == 1) {
+            jRadioButton11.setSelected(true);
+        }
+        if(listaVagas.get(11) == 1) {
+            jRadioButton12.setSelected(true);
+        }
+        if(listaVagas.get(0) == 0) {
+            jRadioButton1.setSelected(false);
+        }
+        if(listaVagas.get(1) == 0) {
+            jRadioButton2.setSelected(false);
+        }
+        if(listaVagas.get(2) == 0) {
+            jRadioButton3.setSelected(false);
+        }
+        if(listaVagas.get(3) == 0) {
+            jRadioButton4.setSelected(false);
+        }
+        if(listaVagas.get(4) == 0) {
+            jRadioButton5.setSelected(false);
+        }
+        if(listaVagas.get(5) == 0) {
+            jRadioButton6.setSelected(false);
+        }
+        if(listaVagas.get(6) == 0) {
+            jRadioButton7.setSelected(false);
+        }
+        if(listaVagas.get(7) == 0) {
+            jRadioButton8.setSelected(false);
+        }
+        if(listaVagas.get(8) == 0) {
+            jRadioButton9.setSelected(false);
+        }
+        if(listaVagas.get(9) == 0) {
+            jRadioButton10.setSelected(false);
+        }
+        if(listaVagas.get(10) == 0) {
+            jRadioButton11.setSelected(false);
+        }
+        if(listaVagas.get(11) == 0) {
+            jRadioButton12.setSelected(false);
+        }
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
