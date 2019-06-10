@@ -8,12 +8,15 @@ package br.inatel.softcar.view;
 import br.inatel.softcar.model.VagasDAO;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 
 /**
  *
  * @author Brener
  */
 public class TelaHomeGerente extends javax.swing.JFrame {
+
+    JRadioButton[] vetorBotoes = new JRadioButton[12];
 
     /**
      * Creates new form TelaHomeGerente
@@ -22,6 +25,18 @@ public class TelaHomeGerente extends javax.swing.JFrame {
         initComponents();
         jLabelNomeGerente.setText(nome);
         setLocationRelativeTo(null);
+        vetorBotoes[0] = jRadioButton1;
+        vetorBotoes[1] = jRadioButton2;
+        vetorBotoes[2] = jRadioButton3;
+        vetorBotoes[3] = jRadioButton4;
+        vetorBotoes[4] = jRadioButton5;
+        vetorBotoes[5] = jRadioButton6;
+        vetorBotoes[6] = jRadioButton7;
+        vetorBotoes[7] = jRadioButton8;
+        vetorBotoes[8] = jRadioButton9;
+        vetorBotoes[9] = jRadioButton10;
+        vetorBotoes[10] = jRadioButton11;
+        vetorBotoes[11] = jRadioButton12;
         carregarDadosVagas();
     }
 
@@ -31,85 +46,20 @@ public class TelaHomeGerente extends javax.swing.JFrame {
 
     private void carregarDadosVagas() {
         ArrayList<Integer> listaVagas = new ArrayList();
-        
+
         VagasDAO dao = new VagasDAO();
         listaVagas = dao.lerEstacionamento();
-        
-        if(listaVagas.get(0) == 1) {
-            jRadioButton1.setSelected(true);
+
+        for (int i = 0; i < 12; i++) {
+            if (listaVagas.get(i) == 1) {
+                vetorBotoes[i].setSelected(true);
+            } else if (listaVagas.get(i) == 0) {
+                vetorBotoes[i].setSelected(false);
+            }
         }
-        if(listaVagas.get(1) == 1) {
-            jRadioButton2.setSelected(true);
-        }
-        if(listaVagas.get(2) == 1) {
-            jRadioButton3.setSelected(true);
-        }
-        if(listaVagas.get(3) == 1) {
-            jRadioButton4.setSelected(true);
-        }
-        if(listaVagas.get(4) == 1) {
-            jRadioButton5.setSelected(true);
-        }
-        if(listaVagas.get(5) == 1) {
-            jRadioButton6.setSelected(true);
-        }
-        if(listaVagas.get(6) == 1) {
-            jRadioButton7.setSelected(true);
-        }
-        if(listaVagas.get(7) == 1) {
-            jRadioButton8.setSelected(true);
-        }
-        if(listaVagas.get(8) == 1) {
-            jRadioButton9.setSelected(true);
-        }
-        if(listaVagas.get(9) == 1) {
-            jRadioButton10.setSelected(true);
-        }
-        if(listaVagas.get(10) == 1) {
-            jRadioButton11.setSelected(true);
-        }
-        if(listaVagas.get(11) == 1) {
-            jRadioButton12.setSelected(true);
-        }
-        if(listaVagas.get(0) == 0) {
-            jRadioButton1.setSelected(false);
-        }
-        if(listaVagas.get(1) == 0) {
-            jRadioButton2.setSelected(false);
-        }
-        if(listaVagas.get(2) == 0) {
-            jRadioButton3.setSelected(false);
-        }
-        if(listaVagas.get(3) == 0) {
-            jRadioButton4.setSelected(false);
-        }
-        if(listaVagas.get(4) == 0) {
-            jRadioButton5.setSelected(false);
-        }
-        if(listaVagas.get(5) == 0) {
-            jRadioButton6.setSelected(false);
-        }
-        if(listaVagas.get(6) == 0) {
-            jRadioButton7.setSelected(false);
-        }
-        if(listaVagas.get(7) == 0) {
-            jRadioButton8.setSelected(false);
-        }
-        if(listaVagas.get(8) == 0) {
-            jRadioButton9.setSelected(false);
-        }
-        if(listaVagas.get(9) == 0) {
-            jRadioButton10.setSelected(false);
-        }
-        if(listaVagas.get(10) == 0) {
-            jRadioButton11.setSelected(false);
-        }
-        if(listaVagas.get(11) == 0) {
-            jRadioButton12.setSelected(false);
-        }
-        
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,12 +82,12 @@ public class TelaHomeGerente extends javax.swing.JFrame {
         jRadioButton10 = new javax.swing.JRadioButton();
         jRadioButton11 = new javax.swing.JRadioButton();
         jRadioButton12 = new javax.swing.JRadioButton();
-        jButtonBloquearVaga = new javax.swing.JButton();
-        jButtonDesbloquearVaga = new javax.swing.JButton();
         jButtonSairGerente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabelNomeGerente = new javax.swing.JLabel();
+        jButtonAtualizarVagas = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,7 +146,7 @@ public class TelaHomeGerente extends javax.swing.JFrame {
                     .addComponent(jRadioButton12)
                     .addComponent(jRadioButton8)
                     .addComponent(jRadioButton4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         jPanelOverviewEstacionamentoLayout.setVerticalGroup(
             jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,15 +175,6 @@ public class TelaHomeGerente extends javax.swing.JFrame {
                 .addContainerGap(126, Short.MAX_VALUE))
         );
 
-        jButtonBloquearVaga.setText("Bloquear Vaga");
-        jButtonBloquearVaga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBloquearVagaActionPerformed(evt);
-            }
-        });
-
-        jButtonDesbloquearVaga.setText("Desbloquear Vaga");
-
         jButtonSairGerente.setText("Sair");
         jButtonSairGerente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,6 +187,17 @@ public class TelaHomeGerente extends javax.swing.JFrame {
         jLabel2.setText("Nome:");
 
         jLabelNomeGerente.setText("John");
+
+        jButtonAtualizarVagas.setText("Atualizar Vagas");
+        jButtonAtualizarVagas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtualizarVagasActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Estacionamento gerente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,18 +221,22 @@ public class TelaHomeGerente extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jButtonBloquearVaga, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jButtonDesbloquearVaga, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(106, 106, 106)
+                .addComponent(jButtonAtualizarVagas, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSairGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 55, Short.MAX_VALUE))
+                .addGap(105, 105, 105))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(288, 288, 288)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -291,23 +247,35 @@ public class TelaHomeGerente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSairGerente)
-                    .addComponent(jButtonDesbloquearVaga)
-                    .addComponent(jButtonBloquearVaga))
+                    .addComponent(jButtonAtualizarVagas))
                 .addGap(65, 65, 65))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonBloquearVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBloquearVagaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonBloquearVagaActionPerformed
-
     private void jButtonSairGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairGerenteActionPerformed
         TelaInicial ti = new TelaInicial();
         ti.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonSairGerenteActionPerformed
+
+    private void jButtonAtualizarVagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarVagasActionPerformed
+        // TODO add your handling code here:
+        VagasDAO dao = new VagasDAO();
+        ArrayList<Integer> listaVagas = new ArrayList();
+
+        for (int i = 0; i < 12; i++) {
+            if (vetorBotoes[i].isSelected()) {
+                listaVagas.add(1);
+            } else {
+                listaVagas.add(0);
+            }
+        }
+
+        dao.atualizarVagas(listaVagas);
+        carregarDadosVagas();
+    }//GEN-LAST:event_jButtonAtualizarVagasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,11 +313,11 @@ public class TelaHomeGerente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBloquearVaga;
-    private javax.swing.JButton jButtonDesbloquearVaga;
+    private javax.swing.JButton jButtonAtualizarVagas;
     private javax.swing.JButton jButtonSairGerente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelNomeGerente;
     private javax.swing.JPanel jPanelOverviewEstacionamento;
     private javax.swing.JRadioButton jRadioButton1;

@@ -22,21 +22,40 @@ public class TelaHomeCliente extends javax.swing.JFrame {
 
     int idUsuarioLogado;
     int idVagaOcupada;
+    JRadioButton[] vetorBotoes = new JRadioButton[12];
 
     /**
      * Creates new form TelaHomeCliente
      */
-    public TelaHomeCliente(int id, String nome) {
+    public TelaHomeCliente(int id) {
         initComponents();
         setLocationRelativeTo(null);
-        jLabelPilotoVeiculo.setText(nome);
         idUsuarioLogado = id;
+        vetorBotoes[0] = jRadioButton1;
+        vetorBotoes[1] = jRadioButton2;
+        vetorBotoes[2] = jRadioButton3;
+        vetorBotoes[3] = jRadioButton4;
+        vetorBotoes[4] = jRadioButton5;
+        vetorBotoes[5] = jRadioButton6;
+        vetorBotoes[6] = jRadioButton7;
+        vetorBotoes[7] = jRadioButton8;
+        vetorBotoes[8] = jRadioButton9;
+        vetorBotoes[9] = jRadioButton10;
+        vetorBotoes[10] = jRadioButton11;
+        vetorBotoes[11] = jRadioButton12;
+        carregaDadosTela();
         carregarDadosVagas();
         carregaDadosVeiculo();
+
     }
 
     private TelaHomeCliente() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void carregaDadosTela() {
+        UsuarioDAO dao = new UsuarioDAO();
+        jLabelPilotoVeiculo.setText(dao.carregaDadosTelaCliente(idUsuarioLogado));
     }
 
     private void carregaDadosVeiculo() {
@@ -52,122 +71,25 @@ public class TelaHomeCliente extends javax.swing.JFrame {
     }
 
     private void carregarDadosVagas() {
+
         ArrayList<Integer> listaVagas = new ArrayList();
-        
+
         ButtonGroup jRadioGroupLivres = new javax.swing.ButtonGroup();
-        
+
         VagasDAO dao = new VagasDAO();
         listaVagas = dao.lerEstacionamento();
-        
-        if(listaVagas.get(0) == 1) {
-            jRadioButton1.setSelected(true);
-            jRadioButton1.setEnabled(false);
+
+        for (int i = 0; i < 12; i++) {
+            if (listaVagas.get(i) == 1) {
+                vetorBotoes[i].setSelected(true);
+                vetorBotoes[i].setEnabled(false);
+            } else if (listaVagas.get(i) == 0) {
+                jRadioGroupLivres.add(vetorBotoes[i]);
+                vetorBotoes[i].setSelected(false);
+                vetorBotoes[i].setEnabled(true);
+            }
         }
-        if(listaVagas.get(1) == 1) {
-            jRadioButton2.setSelected(true);
-            jRadioButton2.setEnabled(false);
-        }
-        if(listaVagas.get(2) == 1) {
-            jRadioButton3.setSelected(true);
-            jRadioButton3.setEnabled(false);
-        }
-        if(listaVagas.get(3) == 1) {
-            jRadioButton4.setSelected(true);
-            jRadioButton4.setEnabled(false);
-        }
-        if(listaVagas.get(4) == 1) {
-            jRadioButton5.setSelected(true);
-            jRadioButton5.setEnabled(false);
-        }
-        if(listaVagas.get(5) == 1) {
-            jRadioButton6.setSelected(true);
-            jRadioButton6.setEnabled(false);
-        }
-        if(listaVagas.get(6) == 1) {
-            jRadioButton7.setSelected(true);
-            jRadioButton7.setEnabled(false);
-        }
-        if(listaVagas.get(7) == 1) {
-            jRadioButton8.setSelected(true);
-            jRadioButton8.setEnabled(false);
-        }
-        if(listaVagas.get(8) == 1) {
-            jRadioButton9.setSelected(true);
-            jRadioButton9.setEnabled(false);
-        }
-        if(listaVagas.get(9) == 1) {
-            jRadioButton10.setSelected(true);
-            jRadioButton10.setEnabled(false);
-        }
-        if(listaVagas.get(10) == 1) {
-            jRadioButton11.setSelected(true);
-            jRadioButton11.setEnabled(false);
-        }
-        if(listaVagas.get(11) == 1) {
-            jRadioButton12.setSelected(true);
-            jRadioButton12.setEnabled(false);
-        }
-        if(listaVagas.get(0) == 0) {
-            jRadioGroupLivres.add(jRadioButton1);
-            jRadioButton1.setSelected(false);
-            jRadioButton1.setEnabled(true);
-        }
-        if(listaVagas.get(1) == 0) {
-            jRadioGroupLivres.add(jRadioButton2);
-            jRadioButton2.setSelected(false);
-            jRadioButton2.setEnabled(true);
-        }
-        if(listaVagas.get(2) == 0) {
-            jRadioGroupLivres.add(jRadioButton3);
-            jRadioButton3.setSelected(false);
-            jRadioButton3.setEnabled(true);
-        }
-        if(listaVagas.get(3) == 0) {
-            jRadioGroupLivres.add(jRadioButton4);
-            jRadioButton4.setSelected(false);
-            jRadioButton4.setEnabled(true);
-        }
-        if(listaVagas.get(4) == 0) {
-            jRadioGroupLivres.add(jRadioButton5);
-            jRadioButton5.setSelected(false);
-            jRadioButton5.setEnabled(true);
-        }
-        if(listaVagas.get(5) == 0) {
-            jRadioGroupLivres.add(jRadioButton6);
-            jRadioButton6.setSelected(false);
-            jRadioButton6.setEnabled(true);
-        }
-        if(listaVagas.get(6) == 0) {
-            jRadioGroupLivres.add(jRadioButton7);
-            jRadioButton7.setSelected(false);
-            jRadioButton7.setEnabled(true);
-        }
-        if(listaVagas.get(7) == 0) {
-            jRadioGroupLivres.add(jRadioButton8);
-            jRadioButton8.setSelected(false);
-            jRadioButton8.setEnabled(true);
-        }
-        if(listaVagas.get(8) == 0) {
-            jRadioGroupLivres.add(jRadioButton9);
-            jRadioButton9.setSelected(false);
-            jRadioButton9.setEnabled(true);
-        }
-        if(listaVagas.get(9) == 0) {
-            jRadioGroupLivres.add(jRadioButton10);
-            jRadioButton10.setSelected(false);
-            jRadioButton10.setEnabled(true);
-        }
-        if(listaVagas.get(10) == 0) {
-            jRadioGroupLivres.add(jRadioButton11);
-            jRadioButton11.setSelected(false);
-            jRadioButton11.setEnabled(true);
-        }
-        if(listaVagas.get(11) == 0) {
-            jRadioGroupLivres.add(jRadioButton12);
-            jRadioButton12.setSelected(false);
-            jRadioButton12.setEnabled(true);
-        }
-        
+
     }
 
     /**
@@ -487,8 +409,8 @@ public class TelaHomeCliente extends javax.swing.JFrame {
         String modelo = jListVeiculos.getSelectedValue();
         String tipo = jListVeiculos.getSelectedValue();
         String placa = jListVeiculos.getSelectedValue();
-        modelo = modelo.substring(7, modelo.length() - 5).trim();
-        placa = placa.substring(0, 7).trim();
+        modelo = modelo.substring(8, modelo.length() - 5).trim();
+        placa = placa.substring(0, 8).trim();
         tipo = tipo.substring(tipo.length() - 5, tipo.length()).trim();
         jLabelModeloVeiculo.setText(modelo);
         jLabelPlacaVeiculo.setText(placa);
@@ -505,64 +427,75 @@ public class TelaHomeCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         CadastroVeiculo cv = new CadastroVeiculo(idUsuarioLogado);
         cv.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_jButtonCadastrarVeiculoActionPerformed
 
     private void jButtonOcuparVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOcuparVagaActionPerformed
         // TODO add your handling code here:
+//        VagasDAO dao = new VagasDAO();
+//
+//        if (jRadioButton1.isSelected() && jRadioButton1.isEnabled()) {
+//            idVagaOcupada = 1;
+//            dao.alterarEstacionamento(1, idUsuarioLogado);
+//        }
+//        if (jRadioButton2.isSelected() && jRadioButton2.isEnabled()) {
+//            idVagaOcupada = 2;
+//            dao.alterarEstacionamento(2, idUsuarioLogado);
+//        }
+//        if (jRadioButton3.isSelected() && jRadioButton3.isEnabled()) {
+//            idVagaOcupada = 3;
+//            dao.alterarEstacionamento(3, idUsuarioLogado);
+//        }
+//        if (jRadioButton4.isSelected() && jRadioButton4.isEnabled()) {
+//            idVagaOcupada = 4;
+//            dao.alterarEstacionamento(4, idUsuarioLogado);
+//        }
+//        if (jRadioButton5.isSelected() && jRadioButton5.isEnabled()) {
+//            idVagaOcupada = 5;
+//            dao.alterarEstacionamento(5, idUsuarioLogado);
+//        }
+//        if (jRadioButton6.isSelected() && jRadioButton6.isEnabled()) {
+//            idVagaOcupada = 6;
+//            dao.alterarEstacionamento(6, idUsuarioLogado);
+//        }
+//        if (jRadioButton7.isSelected() && jRadioButton7.isEnabled()) {
+//            idVagaOcupada = 7;
+//            dao.alterarEstacionamento(7, idUsuarioLogado);
+//        }
+//        if (jRadioButton8.isSelected() && jRadioButton8.isEnabled()) {
+//
+//            dao.alterarEstacionamento(8, idUsuarioLogado);
+//        }
+//        if (jRadioButton9.isSelected() && jRadioButton9.isEnabled()) {
+//
+//            dao.alterarEstacionamento(9, idUsuarioLogado);
+//        }
+//        if (jRadioButton10.isSelected() && jRadioButton10.isEnabled()) {
+//
+//            dao.alterarEstacionamento(10, idUsuarioLogado);
+//        }
+//        if (jRadioButton11.isSelected() && jRadioButton11.isEnabled()) {
+//
+//            dao.alterarEstacionamento(11, idUsuarioLogado);
+//        }
+//        if (jRadioButton12.isSelected() && jRadioButton12.isEnabled()) {
+//
+//            dao.alterarEstacionamento(12, idUsuarioLogado);
+//        }
+//        carregarDadosVagas();
         VagasDAO dao = new VagasDAO();
-        
-        if (jRadioButton1.isSelected() && jRadioButton1.isEnabled()) {
-            idVagaOcupada = 1;
-            dao.alterarEstacionamento(1);
+
+        for (int i = 0; i < 12; i++) {
+            if (vetorBotoes[i].isSelected() && vetorBotoes[i].isEnabled()) {
+                //idVagaOcupada = i;
+                dao.alterarEstacionamento(i + 1, idUsuarioLogado);
+            }
         }
-        if (jRadioButton2.isSelected() && jRadioButton2.isEnabled()) {
-            idVagaOcupada = 2;
-            dao.alterarEstacionamento(2);
-        }
-        if (jRadioButton3.isSelected() && jRadioButton3.isEnabled()) {
-            idVagaOcupada = 3;
-            dao.alterarEstacionamento(3);
-        }
-        if (jRadioButton4.isSelected() && jRadioButton4.isEnabled()) {
-            idVagaOcupada = 4;
-            dao.alterarEstacionamento(4);
-        }
-        if (jRadioButton5.isSelected() && jRadioButton5.isEnabled()) {
-            idVagaOcupada = 5;
-            dao.alterarEstacionamento(5);
-        }
-        if (jRadioButton6.isSelected() && jRadioButton6.isEnabled()) {
-            idVagaOcupada = 6;
-            dao.alterarEstacionamento(6);
-        }
-        if (jRadioButton7.isSelected() && jRadioButton7.isEnabled()) {
-            idVagaOcupada = 7;
-            dao.alterarEstacionamento(7);
-        }
-        if (jRadioButton8.isSelected() && jRadioButton8.isEnabled()) {
-            
-            dao.alterarEstacionamento(8);
-        }
-        if (jRadioButton9.isSelected() && jRadioButton9.isEnabled()) {
-            
-            dao.alterarEstacionamento(9);
-        }
-        if (jRadioButton10.isSelected() && jRadioButton10.isEnabled()) {
-            
-            dao.alterarEstacionamento(10);
-        }
-        if (jRadioButton11.isSelected() && jRadioButton11.isEnabled()) {
-            
-            dao.alterarEstacionamento(11);
-        }
-        if (jRadioButton12.isSelected() && jRadioButton12.isEnabled()) {
-            
-            dao.alterarEstacionamento(12);
-        }
+
         carregarDadosVagas();
-        //this.update(getGraphics());
         
+
     }//GEN-LAST:event_jButtonOcuparVagaActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -580,7 +513,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
     private void jButtonDesocuparVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDesocuparVagaActionPerformed
         // TODO add your handling code here:
         VagasDAO dao = new VagasDAO();
-        dao.desocuparVaga(idVagaOcupada);
+        dao.desocuparVaga(idUsuarioLogado);
         carregarDadosVagas();
     }//GEN-LAST:event_jButtonDesocuparVagaActionPerformed
 

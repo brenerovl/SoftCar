@@ -3,6 +3,8 @@ package br.inatel.softcar.view;
 import br.inatel.softcar.model.Usuario;
 import br.inatel.softcar.model.UsuarioDAO;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 public class CadastroCliente extends javax.swing.JFrame {
@@ -148,10 +150,20 @@ public class CadastroCliente extends javax.swing.JFrame {
         } else {
             Usuario u = new Usuario();
             UsuarioDAO dao = new UsuarioDAO();
-            u.setNome(textFieldUsuario.getText());
-            u.setEmail(textFieldEmail.getText());
-            u.setSenha(Arrays.toString(textFieldSenha.getPassword()));
-            dao.create(u);
+            Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+            Matcher matcher = pattern.matcher(textFieldEmail.getText());
+            if (matcher.matches()) {
+                u.setNome(textFieldUsuario.getText());
+                u.setEmail(textFieldEmail.getText());
+                u.setSenha(Arrays.toString(textFieldSenha.getPassword()));
+                dao.create(u);
+                TelaCliente tc = new TelaCliente();
+                tc.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "E-mail no formato incorreto");
+            }
         }
     }//GEN-LAST:event_btCadastroActionPerformed
 

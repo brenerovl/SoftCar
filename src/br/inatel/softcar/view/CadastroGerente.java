@@ -8,6 +8,8 @@ package br.inatel.softcar.view;
 import br.inatel.softcar.model.GerenteDAO;
 import br.inatel.softcar.model.Usuario;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -180,6 +182,7 @@ public class CadastroGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldGerenteCodigoAcessoActionPerformed
 
     private void jButtonGerenteCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenteCadastrarActionPerformed
+        
         if (jTextFieldGerenteUsuario.getText().isEmpty() == true || jTextFieldGerenteEmail.getText().isEmpty() == true) {
             JOptionPane.showMessageDialog(null, "Entre com todos os campos!");
         } else if (jTextFieldGerenteSenha.getPassword().length == 0) {
@@ -187,21 +190,32 @@ public class CadastroGerente extends javax.swing.JFrame {
         } else if (jTextFieldGerenteSenha.getPassword().length < 7) {
             JOptionPane.showMessageDialog(null, "A senha deve conter no mínimo 7 caracteres!");
         } else if (jTextFieldGerenteCodigoAcesso.getPassword().length == 0) {
-            JOptionPane.showMessageDialog(null, "Digita o código de acesso!");
+            JOptionPane.showMessageDialog(null, "Digite o código de acesso!");
         } else {
 
             String acesso = new String(jTextFieldGerenteCodigoAcesso.getPassword());
             if (acesso.equals("acessopermitido")) {
                 Usuario u = new Usuario();
                 GerenteDAO dao = new GerenteDAO();
-                u.setNome(jTextFieldGerenteUsuario.getText());
-                u.setEmail(jTextFieldGerenteEmail.getText());
-                u.setSenha(Arrays.toString(jTextFieldGerenteSenha.getPassword()));
-                dao.create(u);
+                Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+                Matcher matcher = pattern.matcher(jTextFieldGerenteEmail.getText());
+                if (matcher.matches()) {
+                    u.setEmail(jTextFieldGerenteEmail.getText());
+                    u.setNome(jTextFieldGerenteUsuario.getText());
+                    u.setSenha(Arrays.toString(jTextFieldGerenteSenha.getPassword()));
+                    dao.create(u);
+                    TelaGerente tg = new TelaGerente();
+                    tg.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "E-mail no formato incorreto");
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Codigo de acesso incorreto.");
             }
         }
+
 
     }//GEN-LAST:event_jButtonGerenteCadastrarActionPerformed
 

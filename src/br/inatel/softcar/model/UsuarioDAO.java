@@ -37,7 +37,7 @@ public class UsuarioDAO {
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar. 'carinha tisti'" + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao salvar. " + ex);
 
         } finally {
             ConectionFactory.closeConnection(con, stmt);
@@ -86,5 +86,29 @@ public class UsuarioDAO {
             ConectionFactory.closeConnection(con, stmt, rs);
         }
         return listaVeiculos;
+    }
+    
+    public String carregaDadosTelaCliente(int idUsuarioLogado) {
+        String nomeUsuario = "";
+        Connection con = ConectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("SELECT nome FROM usuario WHERE idUsuario = ?");
+            
+            stmt.setInt(1, idUsuarioLogado);
+            
+            rs = stmt.executeQuery();
+            if(rs.next()){
+                nomeUsuario = rs.getString("nome");
+            }
+            
+        } catch (SQLException ex){
+            
+        } finally {
+            ConectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return nomeUsuario;
     }
 }

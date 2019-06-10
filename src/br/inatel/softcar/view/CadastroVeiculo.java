@@ -12,6 +12,8 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
@@ -21,7 +23,9 @@ import javax.swing.text.MaskFormatter;
  * @author Brener
  */
 public class CadastroVeiculo extends javax.swing.JFrame {
+
     int idUser;
+
     /**
      * Creates new form CadastroVeiculo
      */
@@ -34,8 +38,6 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private CadastroVeiculo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -150,36 +152,44 @@ public class CadastroVeiculo extends javax.swing.JFrame {
 
     private void jTextFieldPlacaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlacaVeiculoActionPerformed
         // TODO add your handling code here:
-                try {
-                    MaskFormatter mascaraPlaca = new MaskFormatter("UUU-####");
-                } catch (ParseException ex) {
-                    Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
-                }
     }//GEN-LAST:event_jTextFieldPlacaVeiculoActionPerformed
 
     private void jButtonCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarVeiculoActionPerformed
 
-         // TODO add your handling code here:
-        if(jTextFieldPlacaVeiculo.getText().isEmpty() == true || jTextFieldModeloVeiculo.getText().isEmpty() == true){
+        // TODO add your handling code here:
+        if (jTextFieldPlacaVeiculo.getText().isEmpty() == true || jTextFieldModeloVeiculo.getText().isEmpty() == true) {
             JOptionPane.showMessageDialog(null, "Entre com dados em todos os campos!");
-        }else {
-            if(jComboBoxTipoVeiculo.getSelectedItem().equals("Selecione uma opção")){
+        } else {
+            if (jComboBoxTipoVeiculo.getSelectedItem().equals("Selecione uma opção")) {
                 JOptionPane.showMessageDialog(null, "Selecione uma opção de veículo válida.");
-            }else{
+            } else {
                 Veiculo v = new Veiculo();
                 VeiculoDAO dao = new VeiculoDAO();
-                v.setPlaca(jTextFieldPlacaVeiculo.getText());
-                v.setModelo(jTextFieldModeloVeiculo.getText());
-                v.setTipo((String) jComboBoxTipoVeiculo.getSelectedItem());
-                
-                dao.create(v, idUser);
+
+                Pattern pattern = Pattern.compile("[A-Z]{3}-[0-9]{4}");
+                Matcher matcher = pattern.matcher(jTextFieldPlacaVeiculo.getText());
+                if(matcher.matches()){
+                    v.setModelo(jTextFieldModeloVeiculo.getText());
+                    v.setTipo((String) jComboBoxTipoVeiculo.getSelectedItem());
+                    v.setPlaca(jTextFieldPlacaVeiculo.getText());
+                    dao.create(v, idUser);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Placa escrita no formato incorreto(XXX-0000)!");
+                }
+
+            }
         }
-        }
+        TelaHomeCliente thc = new TelaHomeCliente(idUser);
+        thc.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonCadastrarVeiculoActionPerformed
 
     private void jButtonVoltarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarVeiculoActionPerformed
         // TODO add your handling code here:
+        TelaHomeCliente thc = new TelaHomeCliente(idUser);
+        thc.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_jButtonVoltarVeiculoActionPerformed
 
     /**

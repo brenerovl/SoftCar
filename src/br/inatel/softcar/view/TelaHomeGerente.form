@@ -47,21 +47,26 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-              <Component id="jButtonBloquearVaga" min="-2" pref="200" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-              <Component id="jButtonDesbloquearVaga" min="-2" pref="203" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+              <Component id="jButtonAtualizarVagas" min="-2" pref="201" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jButtonSairGerente" min="-2" pref="201" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="55" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -73,8 +78,7 @@
               <EmptySpace pref="15" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonSairGerente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonDesbloquearVaga" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonBloquearVaga" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonAtualizarVagas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
           </Group>
@@ -123,7 +127,7 @@
                       <Component id="jRadioButton8" min="-2" max="-2" attributes="0"/>
                       <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="177" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -225,19 +229,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButtonBloquearVaga">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Bloquear Vaga"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBloquearVagaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonDesbloquearVaga">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Desbloquear Vaga"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="jButtonSairGerente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
@@ -259,6 +250,23 @@
     <Component class="javax.swing.JLabel" name="jLabelNomeGerente">
       <Properties>
         <Property name="text" type="java.lang.String" value="John"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonAtualizarVagas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Atualizar Vagas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAtualizarVagasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Estacionamento gerente"/>
       </Properties>
     </Component>
   </SubComponents>

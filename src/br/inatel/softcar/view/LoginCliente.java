@@ -143,7 +143,7 @@ public class LoginCliente extends javax.swing.JFrame {
             if(dao.login(jTextFieldUser.getText(), Arrays.toString(jTextFieldPass.getPassword()))){
                 id = dao.id;
                 nome = dao.nome;
-                TelaHomeCliente thc = new TelaHomeCliente(id, nome);
+                TelaHomeCliente thc = new TelaHomeCliente(id);
                 thc.setVisible(true);
                 this.dispose();
             }else{
