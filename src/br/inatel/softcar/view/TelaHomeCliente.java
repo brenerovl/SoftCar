@@ -114,6 +114,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
         jRadioButton10 = new javax.swing.JRadioButton();
         jRadioButton11 = new javax.swing.JRadioButton();
         jRadioButton12 = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButtonOcuparVaga = new javax.swing.JButton();
         jButtonDesocuparVaga = new javax.swing.JButton();
@@ -134,14 +135,18 @@ public class TelaHomeCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanelOverviewEstacionamento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jRadioButton1.setText("A1");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
             }
         });
+        jPanelOverviewEstacionamento.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 40, 20));
 
         jRadioButton2.setText("A2");
+        jPanelOverviewEstacionamento.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 40, -1));
 
         jRadioButton3.setText("A3");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -149,10 +154,13 @@ public class TelaHomeCliente extends javax.swing.JFrame {
                 jRadioButton3ActionPerformed(evt);
             }
         });
+        jPanelOverviewEstacionamento.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 50, -1));
 
         jRadioButton4.setText("A4");
+        jPanelOverviewEstacionamento.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 50, -1));
 
         jRadioButton5.setText("A5");
+        jPanelOverviewEstacionamento.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 50, -1));
 
         jRadioButton6.setText("A6");
         jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -160,12 +168,16 @@ public class TelaHomeCliente extends javax.swing.JFrame {
                 jRadioButton6ActionPerformed(evt);
             }
         });
+        jPanelOverviewEstacionamento.add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 50, -1));
 
         jRadioButton7.setText("B7");
+        jPanelOverviewEstacionamento.add(jRadioButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, -1));
 
         jRadioButton8.setText("B8");
+        jPanelOverviewEstacionamento.add(jRadioButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
 
         jRadioButton9.setText("B9");
+        jPanelOverviewEstacionamento.add(jRadioButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, -1));
 
         jRadioButton10.setText("B10");
         jRadioButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +185,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
                 jRadioButton10ActionPerformed(evt);
             }
         });
+        jPanelOverviewEstacionamento.add(jRadioButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, -1, -1));
 
         jRadioButton11.setText("B11");
         jRadioButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -180,62 +193,13 @@ public class TelaHomeCliente extends javax.swing.JFrame {
                 jRadioButton11ActionPerformed(evt);
             }
         });
+        jPanelOverviewEstacionamento.add(jRadioButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, -1, -1));
 
         jRadioButton12.setText("B12");
+        jPanelOverviewEstacionamento.add(jRadioButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 260, -1, -1));
 
-        javax.swing.GroupLayout jPanelOverviewEstacionamentoLayout = new javax.swing.GroupLayout(jPanelOverviewEstacionamento);
-        jPanelOverviewEstacionamento.setLayout(jPanelOverviewEstacionamentoLayout);
-        jPanelOverviewEstacionamentoLayout.setHorizontalGroup(
-            jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelOverviewEstacionamentoLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jRadioButton7))
-                .addGap(64, 64, 64)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
-                    .addComponent(jRadioButton8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
-                    .addComponent(jRadioButton9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton12)
-                    .addComponent(jRadioButton10)
-                    .addComponent(jRadioButton11))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanelOverviewEstacionamentoLayout.setVerticalGroup(
-            jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelOverviewEstacionamentoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton10))
-                .addGap(48, 48, 48)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6)
-                    .addComponent(jRadioButton11))
-                .addGap(50, 50, 50)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton7)
-                    .addComponent(jRadioButton8)
-                    .addComponent(jRadioButton9)
-                    .addComponent(jRadioButton12))
-                .addContainerGap(130, Short.MAX_VALUE))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Brener\\Desktop\\INATEL\\EC 206 - Engenharia de Software II\\Projeto\\SoftCar\\Screenshot_1.png")); // NOI18N
+        jPanelOverviewEstacionamento.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 780, 330));
 
         jLabel1.setText("Mapa do Estacionamento");
 
@@ -398,7 +362,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonDesocuparVaga)
                     .addComponent(jButtonOcuparVaga))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -570,6 +534,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;

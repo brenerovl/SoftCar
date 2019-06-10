@@ -82,6 +82,7 @@ public class TelaHomeGerente extends javax.swing.JFrame {
         jRadioButton10 = new javax.swing.JRadioButton();
         jRadioButton11 = new javax.swing.JRadioButton();
         jRadioButton12 = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
         jButtonSairGerente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -92,88 +93,64 @@ public class TelaHomeGerente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanelOverviewEstacionamento.setPreferredSize(new java.awt.Dimension(700, 340));
+        jPanelOverviewEstacionamento.setLayout(null);
 
-        jRadioButton1.setText("jRadioButton1");
+        jRadioButton1.setText("A1");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        jPanelOverviewEstacionamento.add(jRadioButton1);
+        jRadioButton1.setBounds(220, 50, 39, 23);
 
-        jRadioButton2.setText("jRadioButton2");
+        jRadioButton2.setText("A2");
+        jPanelOverviewEstacionamento.add(jRadioButton2);
+        jRadioButton2.setBounds(320, 50, 39, 23);
 
-        jRadioButton3.setText("jRadioButton3");
+        jRadioButton3.setText("A3");
+        jPanelOverviewEstacionamento.add(jRadioButton3);
+        jRadioButton3.setBounds(410, 50, 39, 23);
 
-        jRadioButton4.setText("jRadioButton4");
+        jRadioButton4.setText("A4");
+        jPanelOverviewEstacionamento.add(jRadioButton4);
+        jRadioButton4.setBounds(490, 50, 39, 23);
 
-        jRadioButton5.setText("jRadioButton5");
+        jRadioButton5.setText("A5");
+        jPanelOverviewEstacionamento.add(jRadioButton5);
+        jRadioButton5.setBounds(560, 50, 39, 23);
 
-        jRadioButton6.setText("jRadioButton6");
+        jRadioButton6.setText("A6");
+        jPanelOverviewEstacionamento.add(jRadioButton6);
+        jRadioButton6.setBounds(640, 50, 39, 23);
 
-        jRadioButton7.setText("jRadioButton7");
+        jRadioButton7.setText("B7");
+        jPanelOverviewEstacionamento.add(jRadioButton7);
+        jRadioButton7.setBounds(110, 260, 37, 23);
 
-        jRadioButton8.setText("jRadioButton8");
+        jRadioButton8.setText("B8");
+        jPanelOverviewEstacionamento.add(jRadioButton8);
+        jRadioButton8.setBounds(220, 260, 37, 23);
 
-        jRadioButton9.setText("jRadioButton9");
+        jRadioButton9.setText("B9");
+        jPanelOverviewEstacionamento.add(jRadioButton9);
+        jRadioButton9.setBounds(320, 260, 37, 23);
 
-        jRadioButton10.setText("jRadioButton10");
+        jRadioButton10.setText("B10");
+        jPanelOverviewEstacionamento.add(jRadioButton10);
+        jRadioButton10.setBounds(410, 260, 50, 23);
 
-        jRadioButton11.setText("jRadioButton11");
+        jRadioButton11.setText("B11");
+        jPanelOverviewEstacionamento.add(jRadioButton11);
+        jRadioButton11.setBounds(510, 260, 50, 23);
 
-        jRadioButton12.setText("jRadioButton12");
+        jRadioButton12.setText("B12");
+        jPanelOverviewEstacionamento.add(jRadioButton12);
+        jRadioButton12.setBounds(620, 260, 50, 23);
 
-        javax.swing.GroupLayout jPanelOverviewEstacionamentoLayout = new javax.swing.GroupLayout(jPanelOverviewEstacionamento);
-        jPanelOverviewEstacionamento.setLayout(jPanelOverviewEstacionamentoLayout);
-        jPanelOverviewEstacionamentoLayout.setHorizontalGroup(
-            jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelOverviewEstacionamentoLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanelOverviewEstacionamentoLayout.createSequentialGroup()
-                        .addComponent(jRadioButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton6))
-                    .addGroup(jPanelOverviewEstacionamentoLayout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addGap(58, 58, 58)
-                        .addComponent(jRadioButton2))
-                    .addGroup(jPanelOverviewEstacionamentoLayout.createSequentialGroup()
-                        .addComponent(jRadioButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton10)))
-                .addGap(55, 55, 55)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton7)
-                    .addComponent(jRadioButton11))
-                .addGap(42, 42, 42)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton12)
-                    .addComponent(jRadioButton8)
-                    .addComponent(jRadioButton4))
-                .addContainerGap(177, Short.MAX_VALUE))
-        );
-        jPanelOverviewEstacionamentoLayout.setVerticalGroup(
-            jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelOverviewEstacionamentoLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton11)
-                        .addComponent(jRadioButton12))
-                    .addGroup(jPanelOverviewEstacionamentoLayout.createSequentialGroup()
-                        .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton4))
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton6)
-                            .addComponent(jRadioButton7)
-                            .addComponent(jRadioButton8))
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanelOverviewEstacionamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton9)
-                            .addComponent(jRadioButton10))))
-                .addContainerGap(126, Short.MAX_VALUE))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Brener\\Desktop\\INATEL\\EC 206 - Engenharia de Software II\\Projeto\\SoftCar\\Screenshot_1.png")); // NOI18N
+        jPanelOverviewEstacionamento.add(jLabel4);
+        jLabel4.setBounds(0, 4, 780, 330);
 
         jButtonSairGerente.setText("Sair");
         jButtonSairGerente.addActionListener(new java.awt.event.ActionListener() {
@@ -277,6 +254,10 @@ public class TelaHomeGerente extends javax.swing.JFrame {
         carregarDadosVagas();
     }//GEN-LAST:event_jButtonAtualizarVagasActionPerformed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,6 +299,7 @@ public class TelaHomeGerente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelNomeGerente;
     private javax.swing.JPanel jPanelOverviewEstacionamento;
     private javax.swing.JRadioButton jRadioButton1;
