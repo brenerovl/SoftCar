@@ -8,10 +8,12 @@ package br.inatel.softcar.view;
 import br.inatel.softcar.model.UsuarioDAO;
 import br.inatel.softcar.model.Vagas;
 import br.inatel.softcar.model.VagasDAO;
+import br.inatel.softcar.model.VeiculoDAO;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 /**
@@ -132,6 +134,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
         jButtonCadastrarVeiculo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListVeiculos = new javax.swing.JList<>();
+        jButtonDeletarVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -264,6 +267,13 @@ public class TelaHomeCliente extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jListVeiculos);
 
+        jButtonDeletarVeiculo.setText("Deletar Veículo");
+        jButtonDeletarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeletarVeiculoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -271,7 +281,9 @@ public class TelaHomeCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(339, 339, 339)
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(289, 289, 289)
+                .addComponent(jButtonDeletarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(76, 76, 76))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -355,14 +367,16 @@ public class TelaHomeCliente extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButtonDeletarVeiculo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelOverviewEstacionamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonDesocuparVaga)
                     .addComponent(jButtonOcuparVaga))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -397,57 +411,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
 
     private void jButtonOcuparVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOcuparVagaActionPerformed
         // TODO add your handling code here:
-//        VagasDAO dao = new VagasDAO();
-//
-//        if (jRadioButton1.isSelected() && jRadioButton1.isEnabled()) {
-//            idVagaOcupada = 1;
-//            dao.alterarEstacionamento(1, idUsuarioLogado);
-//        }
-//        if (jRadioButton2.isSelected() && jRadioButton2.isEnabled()) {
-//            idVagaOcupada = 2;
-//            dao.alterarEstacionamento(2, idUsuarioLogado);
-//        }
-//        if (jRadioButton3.isSelected() && jRadioButton3.isEnabled()) {
-//            idVagaOcupada = 3;
-//            dao.alterarEstacionamento(3, idUsuarioLogado);
-//        }
-//        if (jRadioButton4.isSelected() && jRadioButton4.isEnabled()) {
-//            idVagaOcupada = 4;
-//            dao.alterarEstacionamento(4, idUsuarioLogado);
-//        }
-//        if (jRadioButton5.isSelected() && jRadioButton5.isEnabled()) {
-//            idVagaOcupada = 5;
-//            dao.alterarEstacionamento(5, idUsuarioLogado);
-//        }
-//        if (jRadioButton6.isSelected() && jRadioButton6.isEnabled()) {
-//            idVagaOcupada = 6;
-//            dao.alterarEstacionamento(6, idUsuarioLogado);
-//        }
-//        if (jRadioButton7.isSelected() && jRadioButton7.isEnabled()) {
-//            idVagaOcupada = 7;
-//            dao.alterarEstacionamento(7, idUsuarioLogado);
-//        }
-//        if (jRadioButton8.isSelected() && jRadioButton8.isEnabled()) {
-//
-//            dao.alterarEstacionamento(8, idUsuarioLogado);
-//        }
-//        if (jRadioButton9.isSelected() && jRadioButton9.isEnabled()) {
-//
-//            dao.alterarEstacionamento(9, idUsuarioLogado);
-//        }
-//        if (jRadioButton10.isSelected() && jRadioButton10.isEnabled()) {
-//
-//            dao.alterarEstacionamento(10, idUsuarioLogado);
-//        }
-//        if (jRadioButton11.isSelected() && jRadioButton11.isEnabled()) {
-//
-//            dao.alterarEstacionamento(11, idUsuarioLogado);
-//        }
-//        if (jRadioButton12.isSelected() && jRadioButton12.isEnabled()) {
-//
-//            dao.alterarEstacionamento(12, idUsuarioLogado);
-//        }
-//        carregarDadosVagas();
+
         VagasDAO dao = new VagasDAO();
 
         for (int i = 0; i < 12; i++) {
@@ -458,7 +422,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
         }
 
         carregarDadosVagas();
-        
+
 
     }//GEN-LAST:event_jButtonOcuparVagaActionPerformed
 
@@ -488,6 +452,23 @@ public class TelaHomeCliente extends javax.swing.JFrame {
     private void jRadioButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton11ActionPerformed
+
+    private void jButtonDeletarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarVeiculoActionPerformed
+        // TODO add your handling code here:
+        if (jListVeiculos.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione algum campo");
+        } else {
+            VeiculoDAO dao = new VeiculoDAO();
+            String placa = jListVeiculos.getSelectedValue();
+            placa = placa.substring(0, 8);
+            dao.deletarVeiculo(placa);
+
+            carregaDadosVeiculo();
+
+        }
+
+
+    }//GEN-LAST:event_jButtonDeletarVeiculoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -527,6 +508,7 @@ public class TelaHomeCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrarVeiculo;
+    private javax.swing.JButton jButtonDeletarVeiculo;
     private javax.swing.JButton jButtonDesocuparVaga;
     private javax.swing.JButton jButtonOcuparVaga;
     private javax.swing.JButton jButtonSairCliente;
